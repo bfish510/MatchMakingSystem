@@ -1,0 +1,28 @@
+Terms:
+	Elo rating - The rating given to a player to define their skill in a meaningful way.
+	Elo accelration - The idea that by winning a game you impact both a first order and second order rate of change to your elo rating. The more you lose in a row the more impact it will have on your rating. Good for getting new accounts to where they belong faster.
+	Elo gap - The 
+
+Thoughts:	
+	- Users will not just be added at the start in one big bulk as that's unrealistic. Each user will join the queue at a different time.
+	- The system should ramp up the number of users over time.
+	- Priority queue, when checking for players to add to a game, check the priority pool first. 
+		- Maybe we added X amount of time to there current waiting time?
+		- If they connect to a game and it fails do they really need extra time added though. They should be significantly far up the list.
+	-Do we consider combining game pools?
+	- Figure out how tail end players are impacted by time priority with the elo gap extending as time goes on.
+	- Elo gap should have max value maybe? One Standard distribution away?
+	- What can be abused
+
+Implementation Ideas:
+	- Small chunks of players with similar ratings to each other grouped togeter?
+	- Have a queue where we can reinsert in O(1) time.
+		- This might add overhead but if we follow dota's lead where the player is added to a group of ten we need to add and remove them from the queue depending on the game. The other option is to flag a user as 
+			- Exmaple: All players accept the game, but one player does not successfully connect in time, we need to put those users in a priority position.
+	- A user will be pulled out when a server that host another game is open. Therefore we only need as many games open as there are servers. 
+
+
+
+Data structures:
+	- What kind of data structure do we use to keep track of time in queue, elo rating, and current elo width.
+
