@@ -25,4 +25,6 @@ Implementation Ideas:
 
 Data structures:
 	- What kind of data structure do we use to keep track of time in queue, elo rating, and current elo width.
+	- A queue is not quickly traversible, and not easy to insert inside of.
+		- A priority queue would be nice but I would need to make modifications.
 
